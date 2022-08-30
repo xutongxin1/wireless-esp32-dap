@@ -14,7 +14,7 @@
 #include <string.h>
 
 #include "main/usbip_server.h"
-#include "main/DAP_handle.h"
+#include "main/dap_handle.h"
 #include "main/dap_configuration.h"
 
 #include "components/USBIP/USB_descriptor.h"
@@ -200,7 +200,7 @@ IRAM_ATTR void DAP_Thread(void *argument)
             }
 
             ulTaskNotifyTake(pdFALSE, portMAX_DELAY);
-start:
+            
             packetSize = 0;
             item = (DAPPacetDataType *)xRingbufferReceiveUpTo(dap_dataIN_handle, &packetSize,
                                                           0, DAP_HANDLE_SIZE);
